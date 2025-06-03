@@ -8,19 +8,16 @@ import plotly.figure_factory as ff
 
 
 # Add a Markdown component to display the greeting
-st.markdown("### Hi, My name is Nadeem and this app is developed by me")
+st.markdown("### Hi, My name is shushant and this app is developed by me")
 
-links_row = "<a href='https://www.linkedin.com/in/nadeem-akhtar-/' target='_blank'>" \
+links_row = "<a href='https://www.linkedin.com/in/shushant-k1/' target='_blank'>" \
             "<img src='https://img.icons8.com/color/48/000000/linkedin.png' width='30'></a>" \
             " | " \
-            "<a href='https://github.com/NadeemAkhtar1947' target='_blank'>" \
+            "<a href='https://github.com/shushant-k1' target='_blank'>" \
             "<img src='https://img.icons8.com/color/48/000000/github.png' width='30'></a>" \
             " | " \
-            "<a href='https://www.kaggle.com/mdnadeemakhtar/code' target='_blank'>" \
+            "<a href='https://www.kaggle.com/everythingcanbedone/code' target='_blank'>" \
             "<img src='https://www.kaggle.com/static/images/site-logo.png' width='30'></a>" \
-            " | " \
-            "<a href='https://nsde.netlify.app/' target='_blank'>" \
-            "<img src='https://img.icons8.com/color/48/000000/globe--v1.png' width='30'></a>"
 
 # Display the links row using Markdown
 st.markdown(links_row, unsafe_allow_html=True)
