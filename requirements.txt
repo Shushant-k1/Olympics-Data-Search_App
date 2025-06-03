@@ -5,4 +5,3 @@ plotly==5.16.1
 seaborn==0.13.0
 matplotlib==3.8.0
 numpy==1.26.4
-plotly-express==0.4.1
