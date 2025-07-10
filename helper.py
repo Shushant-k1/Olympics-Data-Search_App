@@ -1,3 +1,4 @@
+# numpy
 import numpy as np
 
 def fetch_medal_tally(df_summer, year, country):
