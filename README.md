@@ -11,7 +11,7 @@ This project aims to provide insights into Olympic Games data to identify key tr
 - **Performance trends** over time for athletes 📈
 - **Comparison** of athletes' performances across years ⚖️
 
-We use Python libraries such as **Streamlit**, **Matplotlib**, **Seaborn**, and **Pandas** for data manipulation, visualization, and analysis. 📊
+We use Python libraries such as **Streamlit**, **Matplotlib**, **Seaborn**,**Numpy** and **Pandas** for data manipulation, visualization, and analysis. 📊
 
 ## Features
 
