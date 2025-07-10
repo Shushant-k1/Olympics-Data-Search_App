@@ -8,7 +8,7 @@ import plotly.figure_factory as ff
 
 
 # Add a Markdown component to display the greeting
-st.markdown("### Hi, My name is shushant and this app is developed by me")
+st.markdown("### Olympic Games Analysis App by Shushant Kumar")
 
 links_row = "<a href='https://www.linkedin.com/in/shushant-k1/' target='_blank'>" \
             "<img src='https://img.icons8.com/color/48/000000/linkedin.png' width='30'></a>" \
