@@ -1,31 +1,34 @@
-name: Deploy to Cloud Run (No Buckets)
+name: Deploy to Cloud Run (No GCS Bucket)
 
 on:
   push:
     branches:
-      - main  # adjust if you deploy from another branch
+      - main  # change to 'master' or any other branch if needed
 
 env:
-  PROJECT_ID: my-first-project             # ← Replace if needed
+  PROJECT_ID: pioneering-axe-464317-f1
   REGION: europe-west1
   SERVICE_NAME: olympics-data-search-app
-  REPO_NAME: olympics-app-repo             # ← Replace if you named it differently
+  REPO_NAME: olympics-app-repo
   IMAGE_NAME: olympics-data-search-app
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout source code
       uses: actions/checkout@v4
 
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
-        credentials_json: '${{ secrets.GCP_SA_KEY }}'
+        credentials_json: '${{ secrets.GCP_SA_KEY }}'  # Set this secret in GitHub
 
-    - name: Configure Docker for Artifact Registry
+    - name: Set up gcloud CLI
+      uses: google-github-actions/setup-gcloud@v2
+
+    - name: Configure Docker to use Artifact Registry
       run: gcloud auth configure-docker europe-west1-docker.pkg.dev
 
     - name: Build Docker image
