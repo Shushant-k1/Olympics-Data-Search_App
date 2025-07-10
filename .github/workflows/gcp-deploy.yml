@@ -3,11 +3,18 @@ name: Deploy to Cloud Run
 on:
   push:
     branches:
-      - main  # or 'main' if you use that
+      - main  # or 'main' if you're using main branch
 
 jobs:
   deploy:
+    name: Build and Deploy to Cloud Run
     runs-on: ubuntu-latest
+
+    env:
+      PROJECT_ID: olympics-data-shushant
+      REGION: europe-west1
+      REPOSITORY: olympics-docker
+      SERVICE_NAME: olympics-app
 
     steps:
     - name: Checkout code
@@ -18,19 +25,24 @@ jobs:
       with:
         credentials_json: '${{ secrets.GCP_SA_KEY }}'
 
-    - name: Set up gcloud CLI
+    - name: Set up Google Cloud CLI
       uses: google-github-actions/setup-gcloud@v1
+      with:
+        project_id: ${{ env.PROJECT_ID }}
 
-    - name: Build and push Docker image to Artifact Registry
+    - name: Configure Docker for Artifact Registry
+      run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+
+    - name: Build and Push Docker image to Artifact Registry
       run: |
-        docker build -t europe-west1-docker.pkg.dev/olympics-data-shushant/olympics-docker/olympics-app:$GITHUB_SHA .
-        docker push europe-west1-docker.pkg.dev/olympics-data-shushant/olympics-docker/olympics-app:$GITHUB_SHA
+        docker build -t $REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$SERVICE_NAME:$GITHUB_SHA .
+        docker push $REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$SERVICE_NAME:$GITHUB_SHA
 
     - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy olympics-app \
-          --image europe-west1-docker.pkg.dev/olympics-data-shushant/olympics-docker/olympics-app:$GITHUB_SHA \
-          --region europe-west1 \
+        gcloud run deploy $SERVICE_NAME \
+          --image $REGION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$SERVICE_NAME:$GITHUB_SHA \
+          --region $REGION \
           --platform managed \
           --allow-unauthenticated \
           --port 8080
