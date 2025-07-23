@@ -2,7 +2,13 @@
 
 Welcome to the Olympic Games Analysis project! 🎉 This project performs a detailed analysis of the Olympic Games data, including insights into both the Summer and Winter Olympics. Using **Streamlit** for interactive visualizations, users can explore medal tallies, top athletes, trends over time, and more! 🌍🏅
 
+## Live Demo 🚀
+
+Here are links to have a look at the app in action:
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-FF5733?style=for-the-badge&logo=Google-chrome&logoColor=white)]([https://olympics-data-search-app1.streamlit.app/](https://olympics-data-searchapp.streamlit.app/))
 ## Overview
+
 
 This project aims to provide insights into Olympic Games data to identify key trends and patterns, such as:
 
@@ -90,11 +96,7 @@ Here are some screenshots to give you a preview of the app in action:
 
 *Compare the performance of athletes over time.*
 
-## Live Demo 🚀
 
-Here are links to have a look at the app in action:
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-FF5733?style=for-the-badge&logo=Google-chrome&logoColor=white)](https://olympics-data-search-app1.streamlit.app/)
 
 
 ## Example Features 🎮
